@@ -17,10 +17,11 @@ export default defineConfig({
                      * See: https://module-federation.io/guide/basic/type-prompt.html
                      */
 
-                    // remotes: {
-                    //     reactApp: 'reactApp@http://localhost:8001/mf-manifest.json',
-                    //     litApp: 'litApp@http://localhost:8002/mf-manifest.json',
-                    // }
+                    remotes: {
+                        reactApp: 'reactApp@http://localhost:8001/mf-manifest.json',
+                        litApp: 'litApp@http://localhost:8002/mf-manifest.json',
+                        angularApp: 'angularApp@http://localhost:4200/remoteEntry.js',
+                    }
                 }),
             ]
         }
