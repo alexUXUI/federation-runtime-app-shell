@@ -22,6 +22,10 @@ Child NG app:
 cd packages/ng-child && npm i && npm run start
 ```
 
+Then navigate to http://localhost:8000 for app shell
+
+Or to 4202 for the child ng app and 4201 for the parent ng app
+
 -------------------
 
 ![Diagram](./diagram.png)
