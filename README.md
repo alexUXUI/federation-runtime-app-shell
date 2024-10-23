@@ -7,7 +7,7 @@
 Start all non-ng apps from top level directory:
 
 ```shell
-npm i && run run dev
+npm i && npm run dev
 ```
 
 For ng apps, start each app individually:
