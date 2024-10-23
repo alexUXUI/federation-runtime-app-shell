@@ -2,11 +2,11 @@ const { ModuleFederationPlugin } = require("@module-federation/enhanced");
 const path = require("path");
 module.exports = {
   output: {
-    publicPath: "http://localhost:4201/",
+    publicPath: "http://localhost:4202/",
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "angularApp",
+      name: "ngChild",
       exposes: {
         "./Component": path.resolve(__dirname, "./src/app/app.component.ts"),
       },

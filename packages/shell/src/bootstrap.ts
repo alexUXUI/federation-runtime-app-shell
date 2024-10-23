@@ -1,20 +1,21 @@
 // Federation Runtime
-import { init, loadRemote } from '@module-federation/enhanced/runtime'
+import { init, loadRemote } from '@module-federation/enhanced/runtime';
 
 // Use the Types of the Remote MFEs in @mf-types
-import type { MFE } from '../@mf-types/reactApp/compiled-types/MFE'
+import type { MFE } from '../@mf-types/reactApp/compiled-types/MFE';
 
 // Declare Remote MFEs
 const REMOTE_MFES = [
   { name: 'reactApp', entry: 'http://localhost:8001/mf-manifest.json' },
   { name: 'litApp', entry: 'http://localhost:8002/mf-manifest.json' },
   { name: 'angularApp', entry: 'http://localhost:4201/mf-manifest.json' },
-]
+  { name: 'ngChild', entry: 'http://localhost:4202/mf-manifest.json' },
+];
 
 // Create a new Federation Runtime Instance (Singleton)
 init({
   name: 'shell',
-  remotes: REMOTE_MFES
+  remotes: REMOTE_MFES,
 });
 
 (async () => {
@@ -22,8 +23,13 @@ init({
   const reactMFE = await loadRemote<{ MFE: MFE }>('reactApp/MFE');
   const litMFE = await loadRemote<{ MFE: MFE }>('litApp/MFE');
   const angularMFE = await loadRemote('angularApp/Component');
+  // const ngChild = await loadRemote('ngChild/Component');
 
   if (!reactMFE || !litMFE || !angularMFE) return;
+
+  // if (!reactMFE || !litMFE || !angularMFE || !ngChild) return;
+  // console.log('ngChild');
+  // console.log(ngChild);
 
   const mfes: { MFE: MFE }[] = [reactMFE, litMFE];
 
@@ -37,6 +43,11 @@ init({
   const rootElement = document.createElement('app-root');
   document.body.appendChild(rootElement);
   angularMFE.bootstrap();
+
+  // // Run Angular
+  // const childRootElement = document.createElement('child-root');
+  // document.body.appendChild(childRootElement);
+  // ngChild.bootstrap();
 })();
 
 // Create a Root Element for the Remote MFE
