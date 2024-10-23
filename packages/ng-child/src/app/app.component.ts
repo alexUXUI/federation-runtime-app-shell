@@ -5,7 +5,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app.config';
 
 @Component({
-  selector: 'app-root',
+  selector: 'child-root',
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
