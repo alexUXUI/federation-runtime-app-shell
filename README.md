@@ -1,5 +1,29 @@
 # About
 
+![NG issues](./ng-integration-issues.png)
+
+## Up and Running
+
+Start all non-ng apps from top level directory:
+
+```shell
+npm i && run run dev
+```
+
+For ng apps, start each app individually:
+
+Parent NG app:
+```shell
+cd packages/mfe5 && npm i && npm run start
+```
+
+Child NG app:
+```shell
+cd packages/ng-child && npm i && npm run start
+```
+
+-------------------
+
 ![Diagram](./diagram.png)
 
 This repo contains an App Shell called 'shell' and two micro frontends; 'react-mfe' and 'lit-mfe'
